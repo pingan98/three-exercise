@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title> dat-gui --- Document</title>
+  </head>
+  <body>
+    <!-- 引入 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+    <script>
+      // dat
+
+      // 创建一个控制对象
+      const controlData = {
+        rotationSpeed: 0.01,
+        color: '#66ccff',
+        wireframe: false,
+        evnMaps: '无'
+      }
+      // 创建实例
+      const gui = new dat.GUI()
+      // 创建类目
+      const  f = gui.addFolder('配置')
+      //  数据 key  初始值 最大值 步骤长
+      f.add(controlData,'rotationSpeed', 0.01 , 0.1 , 0.01)
+      f.add(controlData,'rotationSpeed').min(0.01).max(0.1).step(0.01)
+      // 颜色选择器
+      f.add(controlData,'color')
+      // checkbox
+      f.add(controlData,'wireframe')
+      // 下拉列表
+      f.add(controlData,'evnMaps',['无','全反射','漫反射'])
+      f.open()
+    </script>
+  </body>
+</html>
